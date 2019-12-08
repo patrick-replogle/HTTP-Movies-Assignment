@@ -15,6 +15,12 @@ class AddForm extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  handleStars = e => {
+    this.setState({
+      stars: e.target.value.split(", ")
+    });
+  };
+
   handleSubmit = e => {
     e.preventDefault();
     axios
@@ -56,13 +62,13 @@ class AddForm extends React.Component {
             placeholder="metascore"
             value={this.state.metascore}
           />
-          {/* <input
+          <input
             type="text"
             name="stars"
-            onChange={this.handleChange}
+            onChange={this.handleStars}
             placeholder="stars"
             value={this.state.stars}
-          /> */}
+          />
           <button>Submit</button>
         </form>
       </>
