@@ -44,9 +44,11 @@ body {
   margin: 0 10px;
 }
 .saved-active {
-  color: blue;
+  background: lightseagreen;
+  color: white;
   border: 1px solid grey;
   padding: 5px;
+  text-decoration: none;
 }
 .save-wrapper {
   position: relative;
@@ -79,4 +81,48 @@ body {
 .movie-warning {
   color: red;
   text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  border: 1px solid black;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  padding: 10px 0;
+  width: 380px;
+}
+
+/* input:focus {
+  outline: none;
+} */
+
+button {
+  background: lightseagreen;
+  color: white;
+  padding: 10px 20px;
+  margin: 0 5px;
+  border-radius: 6px;
+  border: 1px solid black;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:hover {
+  background: white;
+  color: lightseagreen;
+}
+
+label {
+  text-align: left;
+  margin-bottom: 3px;
+  font-size: 1.6rem;
+  display: block;
 }

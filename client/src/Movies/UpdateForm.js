@@ -42,6 +42,7 @@ const UpdateForm = props => {
           placeholder="title"
           value={input.title}
         />
+
         <input
           type="text"
           name="director"
@@ -49,6 +50,7 @@ const UpdateForm = props => {
           placeholder="director"
           value={input.director}
         />
+
         <input
           type="text"
           name="metascore"
@@ -56,6 +58,7 @@ const UpdateForm = props => {
           placeholder="metascore"
           value={input.metascore}
         />
+
         <input
           type="text"
           name="stars"

@@ -1,26 +1,38 @@
 import React from "react";
+import axios from "axios";
 
 class AddForm extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       input: {
         title: "",
         director: "",
         metascore: "",
-        stars: ""
+        stars: []
       }
     };
   }
   handleChange = e => {
     this.setState({
-      ...this.state.input,
-      [e.target.name]: e.target.value
+      input: { [e.target.name]: e.target.value }
     });
   };
 
   handleSubmit = e => {
     e.preventDefault();
+    axios
+      .post(`http://localhost:5000/api/movies`, this.state.input)
+      .then(() => this.props.history.push("/"))
+      .catch(err => console.log(err));
+    this.setState({
+      input: {
+        title: "",
+        director: "",
+        metascore: "",
+        stars: []
+      }
+    });
   };
 
   render() {
@@ -53,7 +65,7 @@ class AddForm extends React.Component {
             name="stars"
             onChange={this.handleChange}
             placeholder="stars"
-            value={this.state.input.stars}
+            value={this.state.input.stars.split("")}
           />
           <button>Submit</button>
         </form>
