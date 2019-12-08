@@ -9,6 +9,17 @@ const UpdateForm = props => {
     stars: ""
   });
 
+  //find id of movie to edit
+  const id = props.match.params.id;
+
+  //fetch the data for that specific movie(id) and set input fields to populate the data
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/api/movies/${id}`)
+      .then(res => setInput(res.data))
+      .catch(err => console.log(err));
+  }, [id]);
+
   const handleChange = e => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
@@ -21,14 +32,6 @@ const UpdateForm = props => {
       .catch(err => console.log(err));
   };
 
-  const id = props.match.params.id;
-
-  useEffect(() => {
-    axios
-      .get(`http://localhost:5000/api/movies/${id}`)
-      .then(res => setInput(res.data))
-      .catch(err => console.log(err));
-  }, [id]);
   return (
     <>
       <form onSubmit={handleSubmit}>
