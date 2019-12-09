@@ -6,7 +6,7 @@ const UpdateForm = props => {
     title: "",
     director: "",
     metascore: "",
-    stars: ""
+    stars: []
   });
 
   //find id of movie to edit
@@ -22,6 +22,10 @@ const UpdateForm = props => {
 
   const handleChange = e => {
     setInput({ ...input, [e.target.name]: e.target.value });
+  };
+
+  const handleStars = e => {
+    setInput({ ...input, stars: e.target.value.split(", ") });
   };
 
   const handleSubmit = e => {
@@ -62,7 +66,7 @@ const UpdateForm = props => {
         <input
           type="text"
           name="stars"
-          onChange={handleChange}
+          onChange={handleStars}
           placeholder="stars"
           value={input.stars}
         />
