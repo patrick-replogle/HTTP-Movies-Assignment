@@ -18,6 +18,8 @@ export default class MovieList extends Component {
   }
 
   render() {
+    console.log(this.state.movies);
+
     return (
       <div className="movie-list">
         {this.state.movies.map(movie => (
